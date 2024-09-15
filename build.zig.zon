@@ -1,0 +1,28 @@
+.{
+    .name = "nats_c",
+    .version = "3.8.2",
+    .minimum_zig_version = "0.12.0",
+    .dependencies = .{
+        .nats_c = .{
+            .url = "git+https://github.com/nats-io/nats.c?ref=v3.8.2#d58bb6b5bf205684bb72bb28407687aacf6ff498",
+            .hash = "12207f10bd4b38309c79eadf22dfb3d9f134f1359dda01f9df6d9b42734ee2330b72",
+        },
+        .libressl = .{
+            .url = "git+https://github.com/allyourcodebase/libressl.git?ref=3.9.2#a373b82991947b694196ee630bd6a648d71e2b3f",
+            .hash = "1220b1536d43ed8ce79ee05c53929f90b67dd299e61dfa249fa8f476f17eee46a95f",
+            .lazy = true,
+        },
+        .protobuf_c = .{
+            .url = "git+https://github.com/allyourcodebase/protobuf-c.git?ref=1.5.0#ae7587481485e615d3866861703d41d3efc22b82",
+            .hash = "1220f454bf9412333c5d21b8c21b323fc7e4e37b02341bf2fa49f110b8bc5d97c972",
+            .lazy = true,
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "LICENSE",
+        "LICENSE-NATS_C",
+        "readme.md",
+    },
+}
