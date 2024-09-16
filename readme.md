@@ -29,6 +29,7 @@ You can then import `nats_c` in your `build.zig` with:
 const nats_c_dep = b.dependency("nats_c", .{
     .target = target,
     .optimize = optimize,
+    .@"enable-libsodium" = true, // Use libsodium for optimized implementations of some signing routines
     .@"enable-tls" = true, // enable SSL/TLS support
     .@"force-host-verify" = true, // force hostname verification for TLS connections
     .@"enable-streaming" = true, // build with support for NATS streaming extensions
@@ -38,10 +39,11 @@ your_exe.linkLibrary(nats_c_dep.artifact("nats_c"));
 
 ## Dependencies
 
-The NATS.c library has two optional dependencies:
+The NATS.c library has optional dependencies:
 
 - [`libressl`][libressl] when building with `enable-tls`
 - [`protobuf-c`][protobuf-c] when building with `enable-streaming`
+- [`libsodium`][libsodium] when building with `enable-libsodium`
 
 These dependencies are currently automatically retrieved and compiled as static libraries by the Zig build system.
 
@@ -54,4 +56,5 @@ These dependencies are currently automatically retrieved and compiled as static 
 [nats.c]: https://github.com/nats-io/nats.c
 [libressl]: https://github.com/allyourcodebase/libressl
 [protobuf-c]: https://github.com/allyourcodebase/protobuf-c
+[libsodium]: https://github.com/jedisct1/libsodium
 [epicyclic-dev-bindings]: https://github.com/epicyclic-dev/nats-client

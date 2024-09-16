@@ -4,6 +4,7 @@ pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
+    const enable_libsodium = b.option(bool, "enable-libsodium", "Build with libsodium for higher-performance signing (default: true)") orelse true;
     const enable_tls = b.option(bool, "enable-tls", "Build TLS support (default: true)") orelse true;
     const tls_verify = b.option(bool, "force-host-verify", "Force hostname verification for TLS connections (default: true)") orelse true;
     const enable_streaming = b.option(bool, "enable-streaming", "Build with streaming support (default: true)") orelse true;
@@ -16,6 +17,15 @@ pub fn build(b: *std.Build) void {
     const protobuf_runtime = if (enable_streaming) b.lazyDependency(
         "protobuf_c",
         .{ .target = target, .optimize = optimize },
+    ) else null;
+    const libsodium_dep = if (enable_libsodium) b.lazyDependency(
+        "libsodium",
+        .{
+            .target = target,
+            .optimize = optimize,
+            .static = true,
+            .shared = false,
+        },
     ) else null;
 
     const lib = b.addStaticLibrary(.{
@@ -98,6 +108,12 @@ pub fn build(b: *std.Build) void {
             .flags = cflags,
         });
         lib.linkLibrary(dep.artifact("protobuf_c"));
+    }
+
+    if (libsodium_dep) |dep| {
+        lib.defineCMacro("NATS_USE_LIBSODIUM", null);
+        // yep
+        lib.linkLibrary(dep.artifact(if (tinfo.isMinGW()) "libsodium-static" else "sodium"));
     }
 
     b.installArtifact(lib);

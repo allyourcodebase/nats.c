@@ -17,6 +17,11 @@
             .hash = "1220f454bf9412333c5d21b8c21b323fc7e4e37b02341bf2fa49f110b8bc5d97c972",
             .lazy = true,
         },
+        .libsodium = .{
+            .url = "git+https://github.com/jedisct1/libsodium.git?ref=1.0.20-RELEASE#9511c982fb1d046470a8b42aa36556cdb7da15de",
+            .hash = "1220d265dc673167ffe4a3cefe2840893d2910cfd773cfb1893ff768d5f1351d2a1f",
+            .lazy = true,
+        },
     },
     .paths = .{
         "build.zig",
