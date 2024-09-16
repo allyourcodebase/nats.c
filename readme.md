@@ -41,9 +41,9 @@ your_exe.linkLibrary(nats_c_dep.artifact("nats_c"));
 
 The NATS.c library has optional dependencies:
 
-- [`libressl`][libressl] when building with `enable-tls`
-- [`protobuf-c`][protobuf-c] when building with `enable-streaming`
-- [`libsodium`][libsodium] when building with `enable-libsodium`
+- [`libressl 3.9.2`][libressl] when building with `enable-tls`
+- [`protobuf-c 1.5.0`][protobuf-c] when building with `enable-streaming`
+- [`libsodium 1.0.20`][libsodium] when building with `enable-libsodium`
 
 These dependencies are currently automatically retrieved and compiled as static libraries by the Zig build system.
 
@@ -51,7 +51,7 @@ These dependencies are currently automatically retrieved and compiled as static 
 
 |  Refname | NATS.c Version | Zig `0.12.x` | Zig `0.13.x` | Zig `0.14.0-dev` |
 |----------|----------------|--------------|--------------|------------------|
-| `3.8.2`  | `3.8.2`        | ✅           | ✅          | ✅              |
+| `3.8.2`  | `3.8.2`        | ✅           | ✅          | with `-Denable-libsodium=false` |
 
 [nats.c]: https://github.com/nats-io/nats.c
 [libressl]: https://github.com/allyourcodebase/libressl

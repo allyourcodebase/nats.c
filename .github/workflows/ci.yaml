@@ -21,6 +21,7 @@ jobs:
             os: ubuntu-latest
           - zig-version: "master"
             check-format: true
+            build-options: "-Denable-libsodium=false"
             os: ubuntu-latest
     runs-on: ${{ matrix.os }}
     steps:
@@ -31,10 +32,11 @@ jobs:
         uses: mlugg/setup-zig@v1
         with:
           version: ${{ matrix.zig-version }}
+          use-cache: false
 
       - if: ${{ matrix.check-format }}
         name: Check Formatting
         run: zig fmt --ast-check --check .
 
       - name: Build
-        run: zig build --summary all
+        run: zig build ${{ matrix.build-options }} --summary all
