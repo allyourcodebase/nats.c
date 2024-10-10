@@ -18,8 +18,8 @@
             .lazy = true,
         },
         .libsodium = .{
-            .url = "git+https://github.com/jedisct1/libsodium.git?ref=1.0.20-RELEASE#9511c982fb1d046470a8b42aa36556cdb7da15de",
-            .hash = "1220d265dc673167ffe4a3cefe2840893d2910cfd773cfb1893ff768d5f1351d2a1f",
+            .url = "git+https://github.com/jedisct1/libsodium.git?ref=stable#3c6da4b8c27c7d546746eadabc9e2dd6c1fdfc2c",
+            .hash = "12207667c06c40826838b57922ec9c7f90ab2613bf317c6717d0ed2cdf6ca91df718",
             .lazy = true,
         },
     },
