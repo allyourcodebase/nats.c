@@ -19,7 +19,7 @@ First, update your `build.zig.zon`:
 ```sh
 # Initialize a `zig build` project if you haven't already
 zig init
-# replace <refname> with the version you want to use, e.g. 3.8.2
+# replace <refname> with the version you want to use, e.g. 3.8.2+1
 zig fetch --save git+https://github.com/allyourcodebase/nats.c.git#<refname>
 ```
 
@@ -43,15 +43,15 @@ The NATS.c library has optional dependencies:
 
 - [`libressl 3.9.2`][libressl] when building with `enable-tls`
 - [`protobuf-c 1.5.0`][protobuf-c] when building with `enable-streaming`
-- [`libsodium 1.0.20`][libsodium] when building with `enable-libsodium`
+- [`libsodium stable branch`][libsodium] when building with `enable-libsodium`
 
 These dependencies are currently automatically retrieved and compiled as static libraries by the Zig build system.
 
 ## Version Support Matrix
 
-|  Refname | NATS.c Version | Zig `0.12.x` | Zig `0.13.x` | Zig `0.14.0-dev` |
-|----------|----------------|--------------|--------------|------------------|
-| `3.8.2`  | `3.8.2`        | ✅           | ✅          | with `-Denable-libsodium=false` |
+|  Refname  | NATS.c Version | Zig `0.12.x` | Zig `0.13.x` | Zig `0.14.0-dev` |
+|-----------|----------------|--------------|--------------|------------------|
+| `3.8.2+1` | `3.8.2+1`     | ✅           | ✅          | ✅               |
 
 [nats.c]: https://github.com/nats-io/nats.c
 [libressl]: https://github.com/allyourcodebase/libressl
