@@ -8,8 +8,8 @@
             .hash = "12207f10bd4b38309c79eadf22dfb3d9f134f1359dda01f9df6d9b42734ee2330b72",
         },
         .libressl = .{
-            .url = "git+https://github.com/allyourcodebase/libressl.git?ref=3.9.2#a373b82991947b694196ee630bd6a648d71e2b3f",
-            .hash = "1220b1536d43ed8ce79ee05c53929f90b67dd299e61dfa249fa8f476f17eee46a95f",
+            .url = "git+https://github.com/allyourcodebase/libressl.git?ref=3.9.2+1#02abfefee4e4eda28ce53c637b3c0d204ace8a6d",
+            .hash = "12201f5cc06c88f191696106723797449baacb6ea38b07b6cf31c18c0382a6bea33e",
             .lazy = true,
         },
         .protobuf_c = .{
